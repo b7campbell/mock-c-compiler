@@ -112,6 +112,6 @@ log 'Creating Unix Makefile for llvm build ...'
   make
   sudo make install
 
-log '--- llvm setup complete! ---"
+log '--- llvm setup complete! ---'
 
 exit 0 # Success
