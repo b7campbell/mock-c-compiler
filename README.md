@@ -1,6 +1,8 @@
 # mock-c-compiler
 
-This compiler parses a c-like imperative language into llvm bytecodes. The base of this compiler is taken from lsegal's "my_toy_compiler" article and git repository. Huge thanks to him for his jumps tart on this process. Ideally future development will move from its currently lightweight to a more compelte C-compiler.
+This compiler parses a c-like imperative language into llvm bytecodes. The base of this compiler is taken from lsegal's "my_toy_compiler" article and git repository. Huge thanks to him for his jumpstart on a normally very unapproachable task. Read more at [his article](http://gnuu.org/2009/09/18/writing-your-own-toy-compiler/) and his project repo on [github](https://github.com/lsegal/my_toy_compiler). 
+
+Ideally future development will move from its currently lightweight to a more compelte C-compiler.
 
 | *Quick Facts*     |                   |
 |-------------------|------------------:|
