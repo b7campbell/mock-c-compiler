@@ -12,6 +12,7 @@ Ideally future development will move from its currently lightweight to a more co
 | LLVM Version      |               3.5 |
 | GNU Bison         |               2.3 |
 | Apple Flex        |            2.5.35 |
+| CMake             |             3.3.1 |
 
 ## Table of Contents
 
@@ -32,7 +33,6 @@ Ideally future development will move from its currently lightweight to a more co
 | GNU Automake               |           1.9    |                       1.9.6  |
 | libtool                    |       >= 1.5.22  |                       2.4.6  |
 | zlib                       |       >= 1.2.3.4 |                       1.2.8  |
-
 
 ##### Background
 Taken from its official description:
