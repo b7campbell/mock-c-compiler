@@ -7,17 +7,17 @@ This compiler parses a c-like imperative language into llvm bytecodes. Ideally i
 | Language Spec     |       Subset of C |
 | Developed On      |         OSX 10.10 |
 | Required Packages | LLVM, Bison, Flex |
-| LLVM Version      |               3.3 |
+| LLVM Version      |               3.5 |
 | GNU Bison         |               2.3 |
 | Apple Flex        |            2.5.35 |
 
 ## Table of Contents
 
 * [LLVM Setup](#LLVM-Setup)
- 
+
 ### LLVM Setup
 
-| *Dependencies for LLVM*    | Minimum Version  | Version Used for Development | 
+| *Dependencies for LLVM*    | Minimum Version  | Version Used for Development |
 |----------------------------|-----------------:|-----------------------------:|
 | GNU Make                   |        >= 3.79   |                        3.81  |
 | GCC or Clang               |    >= 4.7 or 3.8 |               (Clang) 3.8.0  |
@@ -34,7 +34,7 @@ Taken from its official description:
 
   > LLVM is a library that is used to construct, optimize and produce intermediate and/or binary machine code. LLVM can be used as a compiler framework, where you provide the "front end" (parser and lexer) and the "back end" (code that converts LLVM's representation to actual machine code).
 
-Before using this repo or developing for the repo, llvm must be configured on your system. All code files are specifically developed alongside version `3.3` and will, more than likely, result in many errors when built with older or newer versions. Specifically, the libraries included in header files will differ in both name and location that how they are identified in `.cpp` files here. Other errors are bound to occur as well.
+Before using this repo or developing for the repo, llvm must be configured on your system. All code files are specifically developed alongside version `3.5.0` and will, more than likely, result in many errors when built with older or newer versions. Specifically, the libraries included in header files will differ in both name and location that how they are identified in `.cpp` files here. Other errors are bound to occur as well.
 
 ##### (2) Setup
 The repo comes with a setup script to automate the process. The script's main jobs are to:
