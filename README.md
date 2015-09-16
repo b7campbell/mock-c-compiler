@@ -10,6 +10,7 @@ This compiler parses a c-like imperative language into llvm bytecodes. Ideally i
 | LLVM Version      |               3.3 |
 | GNU Bison         |               2.3 |
 | Apple Flex        |            2.5.35 |
+| CMake             |             3.3.1 |
 
 ## Table of Contents
 
@@ -27,7 +28,6 @@ This compiler parses a c-like imperative language into llvm bytecodes. Ideally i
 | GNU Automake               |           1.9    |                       1.9.6  |
 | libtool                    |       >= 1.5.22  |                       2.4.6  |
 | zlib                       |       >= 1.2.3.4 |                       1.2.8  |
-
 
 ##### (1) Background
 Taken from its official description:
