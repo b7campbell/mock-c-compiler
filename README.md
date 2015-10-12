@@ -20,6 +20,7 @@ Ideally future development will move from its currently lightweight to a more co
   * [Background](#Background)
   * [Setup](#Setup)
   * [Testing](#Testing)
+* [Functionality so Far](#Basic Functionality)
 
 ### LLVM Setup
 
@@ -55,3 +56,6 @@ The repo comes with a setup script to automate the process.
 
 Being able to run `make test` inside the repo should produce a result. If it fails, setup was unsuccessful. Perhaps the wrong version of llvm was installed or your $PATH needs to be adjusted. Any errors will be compile time errors usually with concerns to library file pathnames.
 
+### Basic Functionality
+
+Right now, the repo supports a compile test via  Makefile in the `src` directory. It can parse a basic function call supports some variable processing.
