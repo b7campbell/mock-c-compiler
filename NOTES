@@ -1,0 +1,47 @@
+Explanation of Lexer
+--------------------
+
+a lexer hands values off to a parser  **
+  › before returning the value back to the parser, it needs to be stored
+  › the value is stored in yylval, or the Bison stack
+  › yylval is a union that you specify in parser.y
+
+yylval is a union which you can either declare or the bison will
+  declare automatically. Bison's default yylval is essentially
+  useless. You declare yylval using %union { ... } in your parser
+  because you may need to return other values from the scanner to
+  the parser.
+
+For example, when you match a number in your scanner, you'll want
+  to return a token like T_NUM. But you most probably also want
+  the value of that number, which is where yylval comes handy.
+  Using yylval, if you have an integer field, you could simply
+  do yylval.num = atoi(yytext) inside your scanner, and then use
+  that num field in the parser. (this assumes yylval is an extern int)
+
+yytext is an array of characters, which acts as a buffer for the input
+  currently being parsed. You cannot declare yytext, and neither
+  should you.
+
+Sometimes it is more convenient to know the end of what has been found;
+  hence Lex also provides a count yyleng of the number of characters
+  matched. To count both the number of words and the number of characters
+  in words in the input, the user might write
+
+  [a-zA-Z]+ {words++; chars += yyleng;}
+
+  which accumulates in chars the number of characters in the words
+  recognized. The last character in the string matched can be
+  accessed by
+
+  yytext[yyleng-1]
+
+Annoyingly flex declares a function named yywrap but does not bother
+  to define it. You typically won't need it if you have only one
+  input file. You can tell flex not to declare this function by
+  placing the directive:
+
+  %option noyywrap
+
+  /* This tells flex to read only one input file */
+
