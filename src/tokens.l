@@ -1,19 +1,24 @@
 %{
 
 #include <string>
-#include <stdio.h>
-// #include "node.h"  will be added later to establish AST
+#include <cstdio>
+
+#include "node.h"
 #include "parser.hpp"
 
-#define SAVE_TOKEN  yylval.string = new std::string(yytext, yyleng)
-#define TOKEN(t)    yylval.token = t
+/* yylval is of type YYTYPE - defined by %union in parser.y */
+#define SAVE_TOKEN  yylval.str = new std::string(yytext, yyleng)
+#define TOKEN(t)    yylval.tok = t
 
 %}
+
+%option noyywrap
 
 %%
 
   /* match literals */
 [ \t\n]                          /* ignore whitespace */ ;
+"return"                         return TOKEN(TRETURN);
 [a-zA-Z_][a-zA-Z0-9_]*           SAVE_TOKEN; return TIDENTIFIER;
 [0-9]+\.[0-9]+                   SAVE_TOKEN; return TDOUBLE;
 [0-9]+                           SAVE_TOKEN; return TINTEGER;
@@ -48,6 +53,5 @@
                                      fprintf(stderr, "Unknown token: %s\n", yytext);
                                      yyterminate();
                                  }
-
 %%
 

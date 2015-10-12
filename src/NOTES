@@ -1,0 +1,43 @@
+
+ CodeGen.h
+-----------
+
+Value Class (most important class LLVM):
+
+  represents a typed value that may be used (among other things) as an operand to an instruction
+      (e.g. Constants, Arguments, Instructions, Functions, etc. are all Values)
+
+  LLVM may represent a program by using a Value many times; an instance of the Value class keeps a list of all Users using it
+      this use list is how LLVM represents def-use information in a program, and is accessible through the use_* methods
+      e.g. arguments to functions (instances of the Argument class) are “tracked” by every instruction in the function;
+
+  LLVM is a typed representation, so every LLVM Value is typed, and this Type is available through the getType() method
+    all LLVM values can be named; “name” of the Value is a symbolic string printed in the LLVM code:
+
+      %foo = add i32 1, 2
+
+  name of this instruction is “foo”. NOTE that the name of any value may be missing (an empty string)
+      should ONLY be used to make source code easier to read and NOT should not be used to keep track of values or map between them.
+      use a std::map of pointers to the Value itself instead
+
+      in LLVM, there is no distinction between an SSA variable and the operation that produces it
+      any reference to the value produced by an instruction (e.g. the value available as an incoming argument) is represented
+        as a direct pointer to the instance of the class that represents this value.
+
+Instruction Class:
+
+  common base class for all LLVM instructions, only a few methods but often used
+  the Instruction class itself is the opcode (instruction type) and the parent BasicBlock the Instruction is embedded into
+  to represent a specific type of instruction, one of many subclasses of Instruction are used
+
+Basic Block (term used in the compiler community):
+
+  a single entry single exit section of code
+  maintains a list of instructions, which form block's body
+  also keeps track of the Function that it is embedded into
+
+  Note: are Values, because they are referenced by instructions like branches and can go in the switch tables; type label
+
+User Class:
+
+ (the User class is a base class for all nodes in the LLVM graph that can refer to Values)
