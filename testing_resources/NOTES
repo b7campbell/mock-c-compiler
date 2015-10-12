@@ -1,0 +1,4 @@
+tok.l is an isolated version of the lexer used in this repo that interfaces with parser
+  › it's function is to help diagnose how the lexer is working
+
+Makefile included with this directory speeds up interaction
